@@ -36,6 +36,8 @@ typedef struct ImVector_ImS64 {int Size;int Capacity;ImS64* Data;} ImVector_ImS6
 
 typedef struct ImVector_ImS8 {int Size;int Capacity;ImS8* Data;} ImVector_ImS8;
 
+typedef struct ImVector_ImU16 {int Size;int Capacity;ImU16* Data;} ImVector_ImU16;
+
 typedef struct ImVector_ImU64 {int Size;int Capacity;ImU64* Data;} ImVector_ImU64;
 
 static const int IMPLOT_AUTO = -1;
@@ -105,158 +107,158 @@ typedef enum {
     ImPlotProp_Flags
 }ImPlotProp_;
 typedef enum {
-    ImPlotFlags_None = 0,
-    ImPlotFlags_NoTitle = 1 << 0,
-    ImPlotFlags_NoLegend = 1 << 1,
-    ImPlotFlags_NoMouseText = 1 << 2,
-    ImPlotFlags_NoInputs = 1 << 3,
-    ImPlotFlags_NoMenus = 1 << 4,
-    ImPlotFlags_NoBoxSelect = 1 << 5,
-    ImPlotFlags_NoFrame = 1 << 6,
-    ImPlotFlags_Equal = 1 << 7,
-    ImPlotFlags_Crosshairs = 1 << 8,
-    ImPlotFlags_CanvasOnly = ImPlotFlags_NoTitle | ImPlotFlags_NoLegend | ImPlotFlags_NoMenus | ImPlotFlags_NoBoxSelect | ImPlotFlags_NoMouseText
+    ImPlotFlags_None          = 0,
+    ImPlotFlags_NoTitle       = 1 << 0,
+    ImPlotFlags_NoLegend      = 1 << 1,
+    ImPlotFlags_NoMouseText   = 1 << 2,
+    ImPlotFlags_NoInputs      = 1 << 3,
+    ImPlotFlags_NoMenus       = 1 << 4,
+    ImPlotFlags_NoBoxSelect   = 1 << 5,
+    ImPlotFlags_NoFrame       = 1 << 6,
+    ImPlotFlags_Equal         = 1 << 7,
+    ImPlotFlags_Crosshairs    = 1 << 8,
+    ImPlotFlags_CanvasOnly    = ImPlotFlags_NoTitle | ImPlotFlags_NoLegend | ImPlotFlags_NoMenus | ImPlotFlags_NoBoxSelect | ImPlotFlags_NoMouseText
 }ImPlotFlags_;
 typedef enum {
-    ImPlotAxisFlags_None = 0,
-    ImPlotAxisFlags_NoLabel = 1 << 0,
-    ImPlotAxisFlags_NoGridLines = 1 << 1,
-    ImPlotAxisFlags_NoTickMarks = 1 << 2,
-    ImPlotAxisFlags_NoTickLabels = 1 << 3,
-    ImPlotAxisFlags_NoInitialFit = 1 << 4,
-    ImPlotAxisFlags_NoMenus = 1 << 5,
-    ImPlotAxisFlags_NoSideSwitch = 1 << 6,
-    ImPlotAxisFlags_NoHighlight = 1 << 7,
-    ImPlotAxisFlags_Opposite = 1 << 8,
-    ImPlotAxisFlags_Foreground = 1 << 9,
-    ImPlotAxisFlags_Invert = 1 << 10,
-    ImPlotAxisFlags_AutoFit = 1 << 11,
-    ImPlotAxisFlags_RangeFit = 1 << 12,
-    ImPlotAxisFlags_PanStretch = 1 << 13,
-    ImPlotAxisFlags_LockMin = 1 << 14,
-    ImPlotAxisFlags_LockMax = 1 << 15,
+    ImPlotAxisFlags_None             = 0,
+    ImPlotAxisFlags_NoLabel          = 1 << 0,
+    ImPlotAxisFlags_NoGridLines      = 1 << 1,
+    ImPlotAxisFlags_NoTickMarks      = 1 << 2,
+    ImPlotAxisFlags_NoTickLabels     = 1 << 3,
+    ImPlotAxisFlags_NoInitialFit     = 1 << 4,
+    ImPlotAxisFlags_NoMenus          = 1 << 5,
+    ImPlotAxisFlags_NoSideSwitch     = 1 << 6,
+    ImPlotAxisFlags_NoHighlight      = 1 << 7,
+    ImPlotAxisFlags_Opposite         = 1 << 8,
+    ImPlotAxisFlags_Foreground       = 1 << 9,
+    ImPlotAxisFlags_Invert           = 1 << 10,
+    ImPlotAxisFlags_AutoFit          = 1 << 11,
+    ImPlotAxisFlags_RangeFit         = 1 << 12,
+    ImPlotAxisFlags_PanStretch       = 1 << 13,
+    ImPlotAxisFlags_LockMin          = 1 << 14,
+    ImPlotAxisFlags_LockMax          = 1 << 15,
     ImPlotAxisFlags_TickLabelsInside = 1 << 16,
-    ImPlotAxisFlags_Lock = ImPlotAxisFlags_LockMin | ImPlotAxisFlags_LockMax,
-    ImPlotAxisFlags_NoDecorations = ImPlotAxisFlags_NoLabel | ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_NoTickMarks | ImPlotAxisFlags_NoTickLabels,
-    ImPlotAxisFlags_AuxDefault = ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_Opposite
+    ImPlotAxisFlags_Lock             = ImPlotAxisFlags_LockMin | ImPlotAxisFlags_LockMax,
+    ImPlotAxisFlags_NoDecorations    = ImPlotAxisFlags_NoLabel | ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_NoTickMarks | ImPlotAxisFlags_NoTickLabels,
+    ImPlotAxisFlags_AuxDefault       = ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_Opposite
 }ImPlotAxisFlags_;
 typedef enum {
-    ImPlotSubplotFlags_None = 0,
-    ImPlotSubplotFlags_NoTitle = 1 << 0,
-    ImPlotSubplotFlags_NoLegend = 1 << 1,
-    ImPlotSubplotFlags_NoMenus = 1 << 2,
-    ImPlotSubplotFlags_NoResize = 1 << 3,
-    ImPlotSubplotFlags_NoAlign = 1 << 4,
-    ImPlotSubplotFlags_ShareItems = 1 << 5,
-    ImPlotSubplotFlags_LinkRows = 1 << 6,
-    ImPlotSubplotFlags_LinkCols = 1 << 7,
-    ImPlotSubplotFlags_LinkAllX = 1 << 8,
-    ImPlotSubplotFlags_LinkAllY = 1 << 9,
-    ImPlotSubplotFlags_ColMajor = 1 << 10
+    ImPlotSubplotFlags_None        = 0,
+    ImPlotSubplotFlags_NoTitle     = 1 << 0,
+    ImPlotSubplotFlags_NoLegend    = 1 << 1,
+    ImPlotSubplotFlags_NoMenus     = 1 << 2,
+    ImPlotSubplotFlags_NoResize    = 1 << 3,
+    ImPlotSubplotFlags_NoAlign     = 1 << 4,
+    ImPlotSubplotFlags_ShareItems  = 1 << 5,
+    ImPlotSubplotFlags_LinkRows    = 1 << 6,
+    ImPlotSubplotFlags_LinkCols    = 1 << 7,
+    ImPlotSubplotFlags_LinkAllX    = 1 << 8,
+    ImPlotSubplotFlags_LinkAllY    = 1 << 9,
+    ImPlotSubplotFlags_ColMajor    = 1 << 10
 }ImPlotSubplotFlags_;
 typedef enum {
-    ImPlotLegendFlags_None = 0,
-    ImPlotLegendFlags_NoButtons = 1 << 0,
+    ImPlotLegendFlags_None            = 0,
+    ImPlotLegendFlags_NoButtons       = 1 << 0,
     ImPlotLegendFlags_NoHighlightItem = 1 << 1,
     ImPlotLegendFlags_NoHighlightAxis = 1 << 2,
-    ImPlotLegendFlags_NoMenus = 1 << 3,
-    ImPlotLegendFlags_Outside = 1 << 4,
-    ImPlotLegendFlags_Horizontal = 1 << 5,
-    ImPlotLegendFlags_Sort = 1 << 6,
-    ImPlotLegendFlags_Reverse = 1 << 7,
+    ImPlotLegendFlags_NoMenus         = 1 << 3,
+    ImPlotLegendFlags_Outside         = 1 << 4,
+    ImPlotLegendFlags_Horizontal      = 1 << 5,
+    ImPlotLegendFlags_Sort            = 1 << 6,
+    ImPlotLegendFlags_Reverse         = 1 << 7,
 }ImPlotLegendFlags_;
 typedef enum {
-    ImPlotMouseTextFlags_None = 0,
-    ImPlotMouseTextFlags_NoAuxAxes = 1 << 0,
-    ImPlotMouseTextFlags_NoFormat = 1 << 1,
-    ImPlotMouseTextFlags_ShowAlways = 1 << 2,
+    ImPlotMouseTextFlags_None        = 0,
+    ImPlotMouseTextFlags_NoAuxAxes   = 1 << 0,
+    ImPlotMouseTextFlags_NoFormat    = 1 << 1,
+    ImPlotMouseTextFlags_ShowAlways  = 1 << 2,
 }ImPlotMouseTextFlags_;
 typedef enum {
-    ImPlotDragToolFlags_None = 0,
+    ImPlotDragToolFlags_None      = 0,
     ImPlotDragToolFlags_NoCursors = 1 << 0,
-    ImPlotDragToolFlags_NoFit = 1 << 1,
-    ImPlotDragToolFlags_NoInputs = 1 << 2,
-    ImPlotDragToolFlags_Delayed = 1 << 3,
-    ImPlotDragToolFlags_NoMove = 1 << 4,
-    ImPlotDragToolFlags_NoResize = 1 << 5,
+    ImPlotDragToolFlags_NoFit     = 1 << 1,
+    ImPlotDragToolFlags_NoInputs  = 1 << 2,
+    ImPlotDragToolFlags_Delayed   = 1 << 3,
+    ImPlotDragToolFlags_NoMove    = 1 << 4,
+    ImPlotDragToolFlags_NoResize  = 1 << 5,
 }ImPlotDragToolFlags_;
 typedef enum {
-    ImPlotColormapScaleFlags_None = 0,
-    ImPlotColormapScaleFlags_NoLabel = 1 << 0,
+    ImPlotColormapScaleFlags_None     = 0,
+    ImPlotColormapScaleFlags_NoLabel  = 1 << 0,
     ImPlotColormapScaleFlags_Opposite = 1 << 1,
-    ImPlotColormapScaleFlags_Invert = 1 << 2,
+    ImPlotColormapScaleFlags_Invert   = 1 << 2,
 }ImPlotColormapScaleFlags_;
 typedef enum {
-    ImPlotItemFlags_None = 0,
+    ImPlotItemFlags_None     = 0,
     ImPlotItemFlags_NoLegend = 1 << 0,
-    ImPlotItemFlags_NoFit = 1 << 1,
+    ImPlotItemFlags_NoFit    = 1 << 1,
 }ImPlotItemFlags_;
 typedef enum {
-    ImPlotLineFlags_None = 0,
-    ImPlotLineFlags_Segments = 1 << 10,
-    ImPlotLineFlags_Loop = 1 << 11,
-    ImPlotLineFlags_SkipNaN = 1 << 12,
-    ImPlotLineFlags_NoClip = 1 << 13,
-    ImPlotLineFlags_Shaded = 1 << 14,
+    ImPlotLineFlags_None        = 0,
+    ImPlotLineFlags_Segments    = 1 << 10,
+    ImPlotLineFlags_Loop        = 1 << 11,
+    ImPlotLineFlags_SkipNaN     = 1 << 12,
+    ImPlotLineFlags_NoClip      = 1 << 13,
+    ImPlotLineFlags_Shaded      = 1 << 14,
 }ImPlotLineFlags_;
 typedef enum {
-    ImPlotScatterFlags_None = 0,
+    ImPlotScatterFlags_None   = 0,
     ImPlotScatterFlags_NoClip = 1 << 10,
 }ImPlotScatterFlags_;
 typedef enum {
   ImPlotBubblesFlags_None = 0,
 }ImPlotBubblesFlags_;
 typedef enum {
-  ImPlotPolygonFlags_None = 0,
-  ImPlotPolygonFlags_Concave = 1 << 10,
+  ImPlotPolygonFlags_None     = 0,
+  ImPlotPolygonFlags_Concave  = 1 << 10,
 }ImPlotPolygonFlags_;
 typedef enum {
-    ImPlotStairsFlags_None = 0,
-    ImPlotStairsFlags_PreStep = 1 << 10,
-    ImPlotStairsFlags_Shaded = 1 << 11
+    ImPlotStairsFlags_None     = 0,
+    ImPlotStairsFlags_PreStep  = 1 << 10,
+    ImPlotStairsFlags_Shaded   = 1 << 11
 }ImPlotStairsFlags_;
 typedef enum {
-    ImPlotShadedFlags_None = 0
+    ImPlotShadedFlags_None  = 0
 }ImPlotShadedFlags_;
 typedef enum {
-    ImPlotBarsFlags_None = 0,
-    ImPlotBarsFlags_Horizontal = 1 << 10,
+    ImPlotBarsFlags_None         = 0,
+    ImPlotBarsFlags_Horizontal   = 1 << 10,
 }ImPlotBarsFlags_;
 typedef enum {
-    ImPlotBarGroupsFlags_None = 0,
-    ImPlotBarGroupsFlags_Horizontal = 1 << 10,
-    ImPlotBarGroupsFlags_Stacked = 1 << 11,
+    ImPlotBarGroupsFlags_None        = 0,
+    ImPlotBarGroupsFlags_Horizontal  = 1 << 10,
+    ImPlotBarGroupsFlags_Stacked     = 1 << 11,
 }ImPlotBarGroupsFlags_;
 typedef enum {
-    ImPlotErrorBarsFlags_None = 0,
+    ImPlotErrorBarsFlags_None       = 0,
     ImPlotErrorBarsFlags_Horizontal = 1 << 10,
 }ImPlotErrorBarsFlags_;
 typedef enum {
-    ImPlotStemsFlags_None = 0,
+    ImPlotStemsFlags_None       = 0,
     ImPlotStemsFlags_Horizontal = 1 << 10,
 }ImPlotStemsFlags_;
 typedef enum {
-    ImPlotInfLinesFlags_None = 0,
+    ImPlotInfLinesFlags_None       = 0,
     ImPlotInfLinesFlags_Horizontal = 1 << 10
 }ImPlotInfLinesFlags_;
 typedef enum {
-    ImPlotPieChartFlags_None = 0,
-    ImPlotPieChartFlags_Normalize = 1 << 10,
-    ImPlotPieChartFlags_IgnoreHidden = 1 << 11,
-    ImPlotPieChartFlags_Exploding = 1 << 12,
+    ImPlotPieChartFlags_None          = 0,
+    ImPlotPieChartFlags_Normalize     = 1 << 10,
+    ImPlotPieChartFlags_IgnoreHidden  = 1 << 11,
+    ImPlotPieChartFlags_Exploding     = 1 << 12,
     ImPlotPieChartFlags_NoSliceBorder = 1 << 13
 }ImPlotPieChartFlags_;
 typedef enum {
-    ImPlotHeatmapFlags_None = 0,
+    ImPlotHeatmapFlags_None     = 0,
     ImPlotHeatmapFlags_ColMajor = 1 << 10,
 }ImPlotHeatmapFlags_;
 typedef enum {
-    ImPlotHistogramFlags_None = 0,
+    ImPlotHistogramFlags_None       = 0,
     ImPlotHistogramFlags_Horizontal = 1 << 10,
     ImPlotHistogramFlags_Cumulative = 1 << 11,
-    ImPlotHistogramFlags_Density = 1 << 12,
+    ImPlotHistogramFlags_Density    = 1 << 12,
     ImPlotHistogramFlags_NoOutliers = 1 << 13,
-    ImPlotHistogramFlags_ColMajor = 1 << 14
+    ImPlotHistogramFlags_ColMajor   = 1 << 14
 }ImPlotHistogramFlags_;
 typedef enum {
     ImPlotDigitalFlags_None = 0
@@ -265,16 +267,16 @@ typedef enum {
     ImPlotImageFlags_None = 0
 }ImPlotImageFlags_;
 typedef enum {
-    ImPlotTextFlags_None = 0,
+    ImPlotTextFlags_None     = 0,
     ImPlotTextFlags_Vertical = 1 << 10
 }ImPlotTextFlags_;
 typedef enum {
     ImPlotDummyFlags_None = 0
 }ImPlotDummyFlags_;
 typedef enum {
-    ImPlotCond_None = ImGuiCond_None,
+    ImPlotCond_None   = ImGuiCond_None,
     ImPlotCond_Always = ImGuiCond_Always,
-    ImPlotCond_Once = ImGuiCond_Once,
+    ImPlotCond_Once   = ImGuiCond_Once,
 }ImPlotCond_;
 typedef enum {
     ImPlotCol_FrameBg,
@@ -342,59 +344,59 @@ typedef enum {
     ImPlotMarker_COUNT
 }ImPlotMarker_;
 typedef enum {
-    ImPlotColormap_Deep = 0,
-    ImPlotColormap_Dark = 1,
-    ImPlotColormap_Pastel = 2,
-    ImPlotColormap_Paired = 3,
-    ImPlotColormap_Viridis = 4,
-    ImPlotColormap_Plasma = 5,
-    ImPlotColormap_Hot = 6,
-    ImPlotColormap_Cool = 7,
-    ImPlotColormap_Pink = 8,
-    ImPlotColormap_Jet = 9,
+    ImPlotColormap_Deep     = 0,
+    ImPlotColormap_Dark     = 1,
+    ImPlotColormap_Pastel   = 2,
+    ImPlotColormap_Paired   = 3,
+    ImPlotColormap_Viridis  = 4,
+    ImPlotColormap_Plasma   = 5,
+    ImPlotColormap_Hot      = 6,
+    ImPlotColormap_Cool     = 7,
+    ImPlotColormap_Pink     = 8,
+    ImPlotColormap_Jet      = 9,
     ImPlotColormap_Twilight = 10,
-    ImPlotColormap_RdBu = 11,
-    ImPlotColormap_BrBG = 12,
-    ImPlotColormap_PiYG = 13,
+    ImPlotColormap_RdBu     = 11,
+    ImPlotColormap_BrBG     = 12,
+    ImPlotColormap_PiYG     = 13,
     ImPlotColormap_Spectral = 14,
-    ImPlotColormap_Greys = 15,
+    ImPlotColormap_Greys    = 15,
 }ImPlotColormap_;
 typedef enum {
-    ImPlotLocation_Center = 0,
-    ImPlotLocation_North = 1 << 0,
-    ImPlotLocation_South = 1 << 1,
-    ImPlotLocation_West = 1 << 2,
-    ImPlotLocation_East = 1 << 3,
+    ImPlotLocation_Center    = 0,
+    ImPlotLocation_North     = 1 << 0,
+    ImPlotLocation_South     = 1 << 1,
+    ImPlotLocation_West      = 1 << 2,
+    ImPlotLocation_East      = 1 << 3,
     ImPlotLocation_NorthWest = ImPlotLocation_North | ImPlotLocation_West,
     ImPlotLocation_NorthEast = ImPlotLocation_North | ImPlotLocation_East,
     ImPlotLocation_SouthWest = ImPlotLocation_South | ImPlotLocation_West,
     ImPlotLocation_SouthEast = ImPlotLocation_South | ImPlotLocation_East
 }ImPlotLocation_;
 typedef enum {
-    ImPlotBin_Sqrt = -1,
+    ImPlotBin_Sqrt    = -1,
     ImPlotBin_Sturges = -2,
-    ImPlotBin_Rice = -3,
-    ImPlotBin_Scott = -4,
+    ImPlotBin_Rice    = -3,
+    ImPlotBin_Scott   = -4,
 }ImPlotBin_;
 typedef struct ImPlotSpec_c ImPlotSpec_c;
 struct ImPlotSpec_c
 {
-    ImVec4_c LineColor;
-    ImU32* LineColors;
-    float LineWeight;
-    ImVec4_c FillColor;
-    ImU32* FillColors;
-    float FillAlpha;
-    ImPlotMarker Marker;
-    float MarkerSize;
-    float* MarkerSizes;
-    ImVec4_c MarkerLineColor;
-    ImU32* MarkerLineColors;
-    ImVec4_c MarkerFillColor;
-    ImU32* MarkerFillColors;
-    float Size;
-    int Offset;
-    int Stride;
+    ImVec4_c          LineColor;
+    ImU32*          LineColors;
+    float           LineWeight;
+    ImVec4_c          FillColor;
+    ImU32*          FillColors;
+    float           FillAlpha;
+    ImPlotMarker    Marker;
+    float           MarkerSize;
+    float*          MarkerSizes;
+    ImVec4_c          MarkerLineColor;
+    ImU32*          MarkerLineColors;
+    ImVec4_c          MarkerFillColor;
+    ImU32*          MarkerFillColors;
+    float           Size;
+    int             Offset;
+    int             Stride;
     ImPlotItemFlags Flags;
 };
 typedef struct ImPlotPoint_c ImPlotPoint_c;
@@ -415,47 +417,47 @@ struct ImPlotRect_c
 typedef struct ImPlotStyle ImPlotStyle;
 struct ImPlotStyle
 {
-    ImVec2_c PlotDefaultSize;
-    ImVec2_c PlotMinSize;
-    float PlotBorderSize;
-    float MinorAlpha;
-    ImVec2_c MajorTickLen;
-    ImVec2_c MinorTickLen;
-    ImVec2_c MajorTickSize;
-    ImVec2_c MinorTickSize;
-    ImVec2_c MajorGridSize;
-    ImVec2_c MinorGridSize;
-    ImVec2_c PlotPadding;
-    ImVec2_c LabelPadding;
-    ImVec2_c LegendPadding;
-    ImVec2_c LegendInnerPadding;
-    ImVec2_c LegendSpacing;
-    ImVec2_c MousePosPadding;
-    ImVec2_c AnnotationPadding;
-    ImVec2_c FitPadding;
-    float DigitalPadding;
-    float DigitalSpacing;
-    ImVec4_c Colors[ImPlotCol_COUNT];
+    ImVec2_c  PlotDefaultSize;
+    ImVec2_c  PlotMinSize;
+    float   PlotBorderSize;
+    float   MinorAlpha;
+    ImVec2_c  MajorTickLen;
+    ImVec2_c  MinorTickLen;
+    ImVec2_c  MajorTickSize;
+    ImVec2_c  MinorTickSize;
+    ImVec2_c  MajorGridSize;
+    ImVec2_c  MinorGridSize;
+    ImVec2_c  PlotPadding;
+    ImVec2_c  LabelPadding;
+    ImVec2_c  LegendPadding;
+    ImVec2_c  LegendInnerPadding;
+    ImVec2_c  LegendSpacing;
+    ImVec2_c  MousePosPadding;
+    ImVec2_c  AnnotationPadding;
+    ImVec2_c  FitPadding;
+    float   DigitalPadding;
+    float   DigitalSpacing;
+    ImVec4_c  Colors[ImPlotCol_COUNT];
     ImPlotColormap Colormap;
-    bool UseLocalTime;
-    bool UseISO8601;
-    bool Use24HourClock;
+    bool    UseLocalTime;
+    bool    UseISO8601;
+    bool    Use24HourClock;
 };
 typedef struct ImPlotInputMap ImPlotInputMap;
 struct ImPlotInputMap
 {
     ImGuiMouseButton Pan;
-    int PanMod;
+    int              PanMod;
     ImGuiMouseButton Fit;
     ImGuiMouseButton Select;
     ImGuiMouseButton SelectCancel;
-    int SelectMod;
-    int SelectHorzMod;
-    int SelectVertMod;
+    int              SelectMod;
+    int              SelectHorzMod;
+    int              SelectVertMod;
     ImGuiMouseButton Menu;
-    int OverrideMod;
-    int ZoomMod;
-    float ZoomRate;
+    int              OverrideMod;
+    int              ZoomMod;
+    float            ZoomRate;
 };
 typedef int (*ImPlotFormatter)(double value, char* buff, int size, void* user_data);
 typedef ImPlotPoint_c (*ImPlotGetter)(int idx, void* user_data);
@@ -522,7 +524,7 @@ typedef struct ImPlotTime_c ImPlotTime_c;
 struct ImPlotTime_c
 {
     time_t S;
-    int Us;
+    int    Us;
 };
 typedef struct ImPlotColormapData ImPlotColormapData;
 typedef struct ImVector_bool {int Size;int Capacity;bool* Data;} ImVector_bool;
@@ -530,16 +532,16 @@ typedef struct ImVector_bool {int Size;int Capacity;bool* Data;} ImVector_bool;
 struct ImPlotColormapData
 {
     ImVector_ImU32 Keys;
-    ImVector_int KeyCounts;
-    ImVector_int KeyOffsets;
+    ImVector_int   KeyCounts;
+    ImVector_int   KeyOffsets;
     ImVector_ImU32 Tables;
-    ImVector_int TableSizes;
-    ImVector_int TableOffsets;
+    ImVector_int   TableSizes;
+    ImVector_int   TableOffsets;
     ImGuiTextBuffer Text;
-    ImVector_int TextOffsets;
-    ImVector_bool Quals;
-    ImGuiStorage Map;
-    int Count;
+    ImVector_int   TextOffsets;
+    ImVector_bool  Quals;
+    ImGuiStorage    Map;
+    int             Count;
 };
 typedef struct ImPlotPointError ImPlotPointError;
 struct ImPlotPointError
@@ -551,10 +553,10 @@ struct ImPlotAnnotation
 {
     ImVec2_c Pos;
     ImVec2_c Offset;
-    ImU32 ColorBg;
-    ImU32 ColorFg;
-    int TextOffset;
-    bool Clamp;
+    ImU32  ColorBg;
+    ImU32  ColorFg;
+    int    TextOffset;
+    bool   Clamp;
 };
 typedef struct ImPlotAnnotationCollection ImPlotAnnotationCollection;
 typedef struct ImVector_ImPlotAnnotation {int Size;int Capacity;ImPlotAnnotation* Data;} ImVector_ImPlotAnnotation;
@@ -562,17 +564,17 @@ typedef struct ImVector_ImPlotAnnotation {int Size;int Capacity;ImPlotAnnotation
 struct ImPlotAnnotationCollection
 {
     ImVector_ImPlotAnnotation Annotations;
-    ImGuiTextBuffer TextBuffer;
-    int Size;
+    ImGuiTextBuffer            TextBuffer;
+    int                        Size;
 };
 typedef struct ImPlotTag ImPlotTag;
 struct ImPlotTag
 {
     ImAxis Axis;
     double Value;
-    ImU32 ColorBg;
-    ImU32 ColorFg;
-    int TextOffset;
+    ImU32  ColorBg;
+    ImU32  ColorFg;
+    int    TextOffset;
 };
 typedef struct ImPlotTagCollection ImPlotTagCollection;
 typedef struct ImVector_ImPlotTag {int Size;int Capacity;ImPlotTag* Data;} ImVector_ImPlotTag;
@@ -580,74 +582,74 @@ typedef struct ImVector_ImPlotTag {int Size;int Capacity;ImPlotTag* Data;} ImVec
 struct ImPlotTagCollection
 {
     ImVector_ImPlotTag Tags;
-    ImGuiTextBuffer TextBuffer;
-    int Size;
+    ImGuiTextBuffer     TextBuffer;
+    int                 Size;
 };
 struct ImPlotTick_c
 {
     double PlotPos;
-    float PixelPos;
+    float  PixelPos;
     ImVec2_c LabelSize;
-    int TextOffset;
-    bool Major;
-    bool ShowLabel;
-    int Level;
-    int Idx;
+    int    TextOffset;
+    bool   Major;
+    bool   ShowLabel;
+    int    Level;
+    int    Idx;
 };
 typedef struct ImVector_ImPlotTick {int Size;int Capacity;ImPlotTick_c* Data;} ImVector_ImPlotTick;
 
 struct ImPlotTicker
 {
     ImVector_ImPlotTick Ticks;
-    ImGuiTextBuffer TextBuffer;
-    ImVec2_c MaxSize;
-    ImVec2_c LateSize;
-    int Levels;
+    ImGuiTextBuffer      TextBuffer;
+    ImVec2_c               MaxSize;
+    ImVec2_c               LateSize;
+    int                  Levels;
 };
 struct ImPlotAxis_c
 {
-    ImGuiID ID;
-    ImPlotAxisFlags Flags;
-    ImPlotAxisFlags PreviousFlags;
-    ImPlotRange_c Range;
-    ImPlotCond RangeCond;
-    ImPlotScale Scale;
-    ImPlotRange_c FitExtents;
-    ImPlotAxis_c* OrthoAxis;
-    ImPlotRange_c ConstraintRange;
-    ImPlotRange_c ConstraintZoom;
-    ImPlotTicker Ticker;
-    ImPlotFormatter Formatter;
-    void* FormatterData;
-    char FormatSpec[16];
-    ImPlotLocator Locator;
-    double* LinkedMin;
-    double* LinkedMax;
-    int PickerLevel;
-    ImPlotTime_c PickerTimeMin, PickerTimeMax;
-    ImPlotTransform TransformForward;
-    ImPlotTransform TransformInverse;
-    void* TransformData;
-    float PixelMin, PixelMax;
-    double ScaleMin, ScaleMax;
-    double ScaleToPixel;
-    float Datum1, Datum2;
-    ImRect_c HoverRect;
-    int LabelOffset;
-    ImU32 ColorMaj, ColorMin, ColorTick, ColorTxt, ColorBg, ColorHov, ColorAct, ColorHiLi;
-    bool Enabled;
-    bool Vertical;
-    bool FitThisFrame;
-    bool HasRange;
-    bool HasFormatSpec;
-    bool ShowDefaultTicks;
-    bool Hovered;
-    bool Held;
+    ImGuiID              ID;
+    ImPlotAxisFlags      Flags;
+    ImPlotAxisFlags      PreviousFlags;
+    ImPlotRange_c          Range;
+    ImPlotCond           RangeCond;
+    ImPlotScale          Scale;
+    ImPlotRange_c          FitExtents;
+    ImPlotAxis_c*          OrthoAxis;
+    ImPlotRange_c          ConstraintRange;
+    ImPlotRange_c          ConstraintZoom;
+    ImPlotTicker         Ticker;
+    ImPlotFormatter      Formatter;
+    void*                FormatterData;
+    char                 FormatSpec[16];
+    ImPlotLocator        Locator;
+    double*              LinkedMin;
+    double*              LinkedMax;
+    int                  PickerLevel;
+    ImPlotTime_c           PickerTimeMin, PickerTimeMax;
+    ImPlotTransform      TransformForward;
+    ImPlotTransform      TransformInverse;
+    void*                TransformData;
+    float                PixelMin, PixelMax;
+    double               ScaleMin, ScaleMax;
+    double               ScaleToPixel;
+    float                Datum1, Datum2;
+    ImRect_c               HoverRect;
+    int                  LabelOffset;
+    ImU32                ColorMaj, ColorMin, ColorTick, ColorTxt, ColorBg, ColorHov, ColorAct, ColorHiLi;
+    bool                 Enabled;
+    bool                 Vertical;
+    bool                 FitThisFrame;
+    bool                 HasRange;
+    bool                 HasFormatSpec;
+    bool                 ShowDefaultTicks;
+    bool                 Hovered;
+    bool                 Held;
 };
 typedef struct ImPlotAlignmentData ImPlotAlignmentData;
 struct ImPlotAlignmentData
 {
-    bool Vertical;
+    bool  Vertical;
     float PadA;
     float PadB;
     float PadAMax;
@@ -655,29 +657,29 @@ struct ImPlotAlignmentData
 };
 struct ImPlotItem
 {
-    ImGuiID ID;
-    ImU32 Color;
+    ImGuiID      ID;
+    ImU32        Color;
     ImPlotMarker Marker;
-    ImRect_c LegendHoverRect;
-    int NameOffset;
-    bool Show;
-    bool LegendHovered;
-    bool SeenThisFrame;
+    ImRect_c       LegendHoverRect;
+    int          NameOffset;
+    bool         Show;
+    bool         LegendHovered;
+    bool         SeenThisFrame;
 };
 struct ImPlotLegend
 {
     ImPlotLegendFlags Flags;
     ImPlotLegendFlags PreviousFlags;
-    ImPlotLocation Location;
-    ImPlotLocation PreviousLocation;
-    ImVec2_c Scroll;
-    ImVector_int Indices;
-    ImGuiTextBuffer Labels;
-    ImRect_c Rect;
-    ImRect_c RectClamped;
-    bool Hovered;
-    bool Held;
-    bool CanGoInside;
+    ImPlotLocation    Location;
+    ImPlotLocation    PreviousLocation;
+    ImVec2_c            Scroll;
+    ImVector_int     Indices;
+    ImGuiTextBuffer   Labels;
+    ImRect_c            Rect;
+    ImRect_c            RectClamped;
+    bool              Hovered;
+    bool              Held;
+    bool              CanGoInside;
 };
 typedef struct ImPlotItemGroup ImPlotItemGroup;
 typedef struct ImVector_ImPlotItem {int Size;int Capacity;ImPlotItem* Data;} ImVector_ImPlotItem;
@@ -686,40 +688,40 @@ typedef struct ImPool_ImPlotItem {ImVector_ImPlotItem Buf;ImGuiStorage Map;ImPoo
 
 struct ImPlotItemGroup
 {
-    ImGuiID ID;
-    ImPlotLegend Legend;
+    ImGuiID            ID;
+    ImPlotLegend       Legend;
     ImPool_ImPlotItem ItemPool;
-    int ColormapIdx;
-    ImPlotMarker MarkerIdx;
+    int                ColormapIdx;
+    ImPlotMarker       MarkerIdx;
 };
 struct ImPlotPlot
 {
-    ImGuiID ID;
-    ImPlotFlags Flags;
-    ImPlotFlags PreviousFlags;
-    ImPlotLocation MouseTextLocation;
+    ImGuiID              ID;
+    ImPlotFlags          Flags;
+    ImPlotFlags          PreviousFlags;
+    ImPlotLocation       MouseTextLocation;
     ImPlotMouseTextFlags MouseTextFlags;
-    ImPlotAxis_c Axes[ImAxis_COUNT];
-    ImGuiTextBuffer TextBuffer;
-    ImPlotItemGroup Items;
-    ImAxis CurrentX;
-    ImAxis CurrentY;
-    ImRect_c FrameRect;
-    ImRect_c CanvasRect;
-    ImRect_c PlotRect;
-    ImRect_c AxesRect;
-    ImRect_c SelectRect;
-    ImVec2_c SelectStart;
-    int TitleOffset;
-    bool JustCreated;
-    bool Initialized;
-    bool SetupLocked;
-    bool FitThisFrame;
-    bool Hovered;
-    bool Held;
-    bool Selecting;
-    bool Selected;
-    bool ContextLocked;
+    ImPlotAxis_c           Axes[ImAxis_COUNT];
+    ImGuiTextBuffer      TextBuffer;
+    ImPlotItemGroup      Items;
+    ImAxis               CurrentX;
+    ImAxis               CurrentY;
+    ImRect_c               FrameRect;
+    ImRect_c               CanvasRect;
+    ImRect_c               PlotRect;
+    ImRect_c               AxesRect;
+    ImRect_c               SelectRect;
+    ImVec2_c               SelectStart;
+    int                  TitleOffset;
+    bool                 JustCreated;
+    bool                 Initialized;
+    bool                 SetupLocked;
+    bool                 FitThisFrame;
+    bool                 Hovered;
+    bool                 Held;
+    bool                 Selecting;
+    bool                 Selected;
+    bool                 ContextLocked;
 };
 typedef struct ImPlotSubplot ImPlotSubplot;
 typedef struct ImVector_ImPlotAlignmentData {int Size;int Capacity;ImPlotAlignmentData* Data;} ImVector_ImPlotAlignmentData;
@@ -728,47 +730,47 @@ typedef struct ImVector_ImPlotRange {int Size;int Capacity;ImPlotRange_c* Data;}
 
 struct ImPlotSubplot
 {
-    ImGuiID ID;
-    ImPlotSubplotFlags Flags;
-    ImPlotSubplotFlags PreviousFlags;
-    ImPlotItemGroup Items;
-    int Rows;
-    int Cols;
-    int CurrentIdx;
-    ImRect_c FrameRect;
-    ImRect_c GridRect;
-    ImVec2_c CellSize;
+    ImGuiID                       ID;
+    ImPlotSubplotFlags            Flags;
+    ImPlotSubplotFlags            PreviousFlags;
+    ImPlotItemGroup               Items;
+    int                           Rows;
+    int                           Cols;
+    int                           CurrentIdx;
+    ImRect_c                        FrameRect;
+    ImRect_c                        GridRect;
+    ImVec2_c                        CellSize;
     ImVector_ImPlotAlignmentData RowAlignmentData;
     ImVector_ImPlotAlignmentData ColAlignmentData;
-    ImVector_float RowRatios;
-    ImVector_float ColRatios;
-    ImVector_ImPlotRange RowLinkData;
-    ImVector_ImPlotRange ColLinkData;
-    float TempSizes[2];
-    bool FrameHovered;
-    bool HasTitle;
+    ImVector_float               RowRatios;
+    ImVector_float               ColRatios;
+    ImVector_ImPlotRange         RowLinkData;
+    ImVector_ImPlotRange         ColLinkData;
+    float                         TempSizes[2];
+    bool                          FrameHovered;
+    bool                          HasTitle;
 };
 struct ImPlotNextPlotData
 {
-    ImPlotCond RangeCond[ImAxis_COUNT];
+    ImPlotCond  RangeCond[ImAxis_COUNT];
     ImPlotRange_c Range[ImAxis_COUNT];
-    bool HasRange[ImAxis_COUNT];
-    bool Fit[ImAxis_COUNT];
-    double* LinkedMin[ImAxis_COUNT];
-    double* LinkedMax[ImAxis_COUNT];
+    bool        HasRange[ImAxis_COUNT];
+    bool        Fit[ImAxis_COUNT];
+    double*     LinkedMin[ImAxis_COUNT];
+    double*     LinkedMax[ImAxis_COUNT];
 };
 typedef struct ImPlotNextItemData ImPlotNextItemData;
 struct ImPlotNextItemData
 {
-    ImPlotSpec_c Spec;
-    bool RenderLine;
-    bool RenderFill;
-    bool RenderMarkerLine;
-    bool RenderMarkerFill;
-    bool RenderMarkers;
-    bool HasHidden;
-    bool Hidden;
-    ImPlotCond HiddenCond;
+    ImPlotSpec_c      Spec;
+    bool            RenderLine;
+    bool            RenderFill;
+    bool            RenderMarkerLine;
+    bool            RenderMarkerFill;
+    bool            RenderMarkers;
+    bool            HasHidden;
+    bool            Hidden;
+    ImPlotCond      HiddenCond;
 };
 typedef struct ImVector_ImPlotPlot {int Size;int Capacity;ImPlotPlot* Data;} ImVector_ImPlotPlot;
 
@@ -788,36 +790,36 @@ typedef struct ImPool_ImPlotAlignmentData {ImVector_ImPlotAlignmentData Buf;ImGu
 
 struct ImPlotContext
 {
-    ImPool_ImPlotPlot Plots;
+    ImPool_ImPlotPlot    Plots;
     ImPool_ImPlotSubplot Subplots;
-    ImPlotPlot* CurrentPlot;
-    ImPlotSubplot* CurrentSubplot;
-    ImPlotItemGroup* CurrentItems;
-    ImPlotItem* CurrentItem;
-    ImPlotItem* PreviousItem;
+    ImPlotPlot*           CurrentPlot;
+    ImPlotSubplot*        CurrentSubplot;
+    ImPlotItemGroup*      CurrentItems;
+    ImPlotItem*           CurrentItem;
+    ImPlotItem*           PreviousItem;
     ImPlotTicker CTicker;
     ImPlotAnnotationCollection Annotations;
-    ImPlotTagCollection Tags;
-    ImPlotStyle Style;
-    ImVector_ImGuiColorMod ColorModifiers;
-    ImVector_ImGuiStyleMod StyleModifiers;
-    ImPlotColormapData ColormapData;
-    ImVector_ImPlotColormap ColormapModifiers;
+    ImPlotTagCollection        Tags;
+    ImPlotStyle                 Style;
+    ImVector_ImGuiColorMod     ColorModifiers;
+    ImVector_ImGuiStyleMod     StyleModifiers;
+    ImPlotColormapData          ColormapData;
+    ImVector_ImPlotColormap    ColormapModifiers;
     tm Tm;
-    ImVector_double TempDouble1, TempDouble2;
-    ImVector_int TempInt1;
-    ImVector_ImRect TempRect1;
-    int DigitalPlotItemCnt;
-    int DigitalPlotOffset;
+    ImVector_double   TempDouble1, TempDouble2;
+    ImVector_int      TempInt1;
+    ImVector_ImRect   TempRect1;
+    int                DigitalPlotItemCnt;
+    int                DigitalPlotOffset;
     ImPlotNextPlotData NextPlotData;
     ImPlotNextItemData NextItemData;
-    ImPlotInputMap InputMap;
-    bool OpenContextThisFrame;
-    ImGuiTextBuffer MousePosStringBuilder;
-    ImPlotItemGroup* SortItems;
+    ImPlotInputMap     InputMap;
+    bool               OpenContextThisFrame;
+    ImGuiTextBuffer    MousePosStringBuilder;
+    ImPlotItemGroup*   SortItems;
     ImPool_ImPlotAlignmentData AlignmentData;
-    ImPlotAlignmentData* CurrentAlignmentH;
-    ImPlotAlignmentData* CurrentAlignmentV;
+    ImPlotAlignmentData*        CurrentAlignmentH;
+    ImPlotAlignmentData*        CurrentAlignmentV;
 };
 typedef struct Formatter_Time_Data Formatter_Time_Data;
 struct Formatter_Time_Data

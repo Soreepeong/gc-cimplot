@@ -9,7 +9,7 @@ local cpp2ffi = require"cpp2ffi"
 local save_data = cpp2ffi.save_data
 local copyfile = cpp2ffi.copyfile
 --take script args---------------------------
-local COMPILER, CPRE, INTERNAL_GENERATION, COMMENTS_GENERATION = cpp2ffi.GetScriptArgs({[[IMPLOT_DISABLE_OBSOLETE_FUNCTIONS]]},...)
+local COMPILER, CPRE, INTERNAL_GENERATION, COMMENTS_GENERATION = cpp2ffi.GetScriptArgs({[[IMPLOT_DISABLE_OBSOLETE_FUNCTIONS]],[[IMGUI_DEBUG_PARANOID]]},...) -- IMGUI_DEBUG_PARANOID: keep cl from expanding IM_MSVC_RUNTIME_CHECKS_OFF into __pragma
 --------------------------------------------------------------------------
 --this table has the functions to be skipped in generation
 --------------------------------------------------------------------------
